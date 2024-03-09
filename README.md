@@ -36,9 +36,6 @@ This is a .NET Core MVC web application designed to manage and display products 
 ## Architecture
 - The application follows the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) pattern, separating concerns into layers like Domain, Application, Infrastructure, and Presentation.
 
-## Testing
-- The solution includes a unit test project using xUnit to ensure the reliability and correctness of the application.
-
 ## Repository Submission
 - The project is hosted on a version control system such as GitHub, providing a clear history of changes and collaboration.
 
