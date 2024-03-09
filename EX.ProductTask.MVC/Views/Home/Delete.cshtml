@@ -1,0 +1,101 @@
+﻿@model ProductEditDto 
+@{
+    ViewData["Title"] = "Delete";
+    //Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+
+@section Admin {
+	@await Html.PartialAsync("~/Views/Partials/_partial.cshtml");
+}
+
+
+<div class="app-content page-body">
+	<div class="container">
+
+		<!--Page header-->
+		<div class="page-header">
+			<div class="page-leftheader">
+				<h4 class="page-title">Delete Emloyee</h4>
+				<ol class="breadcrumb pl-0">
+					<li class="breadcrumb-item"><a asp-controller="Home" asp-action="AdminIndex">Home</a></li>
+					<li class="breadcrumb-item"><a asp-controller="Home" asp-action="Delete">Delete</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Delete Product</li>
+				</ol>
+			</div>
+		</div>
+		<!--End Page header-->
+		<!-- Row -->
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<form asp-controller="Home" asp-action="Create" class="card">
+					<div class="card-header">
+						<h3 class="card-title">Create Product</h3>
+						<div class="card-options ">
+							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+						</div>
+					</div>
+					<div class=" card-body">
+						<div class="row">
+							<div class="col-md-6 col-lg-12">
+
+								@*Image*@
+				
+								<center>
+									<div class="form-group">
+										<img width="300px" height="300px" src="~/ProductImages/@Model.URL" />
+									</div>
+								</center>
+                                @*Name*@
+                                <div class="form-group">
+                                    <label class="form-label">Product Name</label>
+                                    <input asp-for=Name type="text" class="form-control" readonly>
+                                </div>
+
+                                @*Category*@
+                                <div class="form-group ">
+									<label class="form-label">Category Name</label>
+									<input asp-for=CategoryName type="text" class="form-control"  readonly>
+
+                                </div>
+
+                                @*Start Date*@
+                                <div class="wd-200 mg-b-30 form-group">
+									<label class="form-label">Start Date</label>
+									<input asp-for=StartDate type="text" class="form-control" readonly>
+
+                                </div>
+
+                                @*Duration*@
+                                <div class="form-group">
+                                    <label class="form-label">Duration</label>
+                                    <input asp-for=Duration type="number" class="form-control"  readonly>
+                                </div>
+
+
+                                @*Price*@
+                                <div class="form-group">
+                                    <label class="form-label">Price</label>
+                                    <input asp-for=Price type="number" class="form-control" readonly>
+
+                                </div>
+
+
+
+							</div>
+						</div>
+					</div>
+					<center>
+						<div class="col-md-4 mb-5">
+							<input type="submit" asp-action="Delete" asp-controller="Home"  class="btn btn-danger  mb-1 mr-3" value="Delete" /> 
+							<a asp-action="AdminIndex" asp-controller="Home" class="btn btn-success">Return</a>
+						</div>
+					</center>
+				</form>
+			</div>
+		</div>
+		<!-- End Row-->
+
+	</div>
+</div><!-- end app-content-->
+

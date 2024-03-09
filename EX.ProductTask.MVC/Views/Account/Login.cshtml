@@ -1,0 +1,140 @@
+﻿@model UserLoginDto
+@{
+	
+    ViewData["Title"] = "Login";
+	var authToken = TempData["AuthToken"] as string;
+}
+
+
+<head>
+
+	<!-- Meta data -->
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+	<meta content="Aronox – Admin Bootstrap4 Responsive Webapp Dashboard Templat" name="description">
+	<meta content="Spruko Technologies Private Limited" name="author">
+	<meta name="keywords" content="admin site template, html admin template,responsive admin template, admin panel template, bootstrap admin panel template, admin template, admin panel template, bootstrap simple admin template premium, simple bootstrap admin template, best bootstrap admin template, simple bootstrap admin template, admin panel template,responsive admin template, bootstrap simple admin template premium" />
+
+	<!-- Title -->
+	<title>Aronox – Admin Bootstrap4 Responsive Webapp Dashboard Templat</title>
+
+	<!--Favicon -->
+	<link rel="icon" href="~/images/brand/favicon.ico" type="image/x-icon" />
+
+	<!-- Style css -->
+	<link href="~/css/style.css" rel="stylesheet" />
+
+	<!---Icons css-->
+	<link href="~/plugins/iconfonts/icons.css" rel="stylesheet" />
+	<link href="~/plugins/iconfonts/font-awesome/font-awesome.min.css" rel="stylesheet">
+	<link href="~/plugins/iconfonts/plugin.css" rel="stylesheet" />
+
+	<!-- Skin css-->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="~/skins/hor-skin/horizontal-dark.css" />
+
+</head>
+
+<body class="h-100vh">
+	<div class="page">
+		<div class="page-single construction-body">
+			<div class="container text-center single-page single-pageimage  ">
+				<div class="row">
+					<img src="~/images/brand/logo.png" class="header-brand-img mobile-view mb-4" alt="Aronox logo">
+					<img src="~/images/brand/logo-dark.png" class="header-brand-img mobile dark-view mb-4" alt="Aronox logo">
+					<div class="col-xl-7 col-lg-6 col-md-12">
+						<img src="~/images/svgs/login.svg" class="construction-img mb-7 h-480  mt-5 mt-xl-0" alt="">
+					</div>
+					<div class="col-xl-5  col-lg-6 col-md-12 ">
+						<div class="col-lg-11">
+							<img src="~/images/brand/logo.png" class="header-brand-img light-view mb-4" alt="Aronox logo">
+							<img src="~/images/brand/logo-dark.png" class="header-brand-img dark-view mb-4" alt="Aronox logo">
+							<div class="wrapper wrapper2">
+								<form asp-action="Login" asp-controller="Account" class="card-body" tabindex="500">
+									<h2 class="mb-1 font-weight-semibold">Login</h2>
+									<p class="mb-6">Sign In to your account</p>
+									@*<div class="input-group mb-3">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" placeholder="Username">
+									</div>*@
+									<div asp-validation-summary="All" class="text-danger"></div>
+
+									<div class="input-group mb-3">
+										<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+										<input asp-for=Email type="text" class="form-control" placeholder="Email">
+									</div>
+
+									<div class="input-group mb-4">
+										<span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+										<input asp-for=Password  type="password" class="form-control" placeholder="Password">
+									</div>
+									<div class="row mb-0">
+										<div class="col-12">
+											<input type="submit" class="btn btn-primary btn-block" value="Sign In"/>
+										</div>
+										<div class="col-12 mb-0">
+											<p class=" mb-0 mt-2">Don't have account?<a asp-action="Register" asp-asp-controller="Account" class="text-primary ml-1">Sign UP</a></p>
+										</div>
+									</div>
+								</form>
+								<div class="card-body social-icons border-top">
+									<a class="btn  btn-social btn-fb mr-2"><i class="fa fa-facebook"></i> </a>
+									<a class="btn  btn-social btn-googleplus mr-2"><i class="fa fa-google-plus"></i></a>
+									<a class="btn  btn-social btn-twitter-transparant  "><i class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Jquery js-->
+	<script src="~/js/vendors/jquery-3.4.0.min.js"></script>
+	<script src="~/plugins/jquery-validate/jquery.validate.min.js"></script>
+	<script src="~/plugins/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+	<!-- Bootstrap4 js-->
+	<script src="~/plugins/bootstrap/popper.min.js"></script>
+	<script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<!--Othercharts js-->
+	<script src="~/plugins/othercharts/jquery.sparkline.min.js"></script>
+
+	<!-- Circle-progress js-->
+	<script src="~/js/vendors/circle-progress.min.js"></script>
+
+	<!-- Jquery-rating js-->
+	<script src="~/plugins/rating/jquery.rating-stars.js"></script>
+	<script>
+		// Store the token in localStorage
+		if (@Json.Serialize(authToken) !== null) {
+			localStorage.setItem('authToken', '@Json.Serialize(authToken)');
+		}
+	</script>
+
+	<script>
+		// Retrieve the token from localStorage
+		var authToken = localStorage.getItem('AuthToken');
+
+		// Example AJAX request with the token in the headers
+		$.ajax({
+			url: '/HomeController/Index', // Replace with the actual URL
+			type: 'GET',
+			headers: {
+				'Authorization': 'Bearer ' + authToken,
+				'Content-Type': 'application/json'
+			},
+			success: function (data) {
+				// Handle the successful response
+				console.log(data);
+			},
+			error: function (error) {
+				// Handle errors
+				console.error(error);
+			}
+		});
+	</script>
+
+</body>

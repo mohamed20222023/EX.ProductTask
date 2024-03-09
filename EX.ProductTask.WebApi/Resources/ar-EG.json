@@ -1,0 +1,45 @@
+{
+    "searchfor": "البحث فى {0}",
+    "getfor": "تم البحث عن واحد من  {1}   ",
+    "successregister": " تم تسجيل بنجاح {0}",
+    "successedit": "تم تعديل بنجاح  {0}",
+    "successdelete": " تم الحذف بنجاح {0}",
+    "failget": "فشل فى الحصول {0}",
+    "failregister": "فشل فى التسجيل  {0}",
+    "failedit": "فشل فى التعديل  {0}",
+    "faildelete": "فشل فى الحذف  {0}",
+    "faildeletes": "فشل فى الحذف ",
+    "appstart": "تم بدأ التشغيل",
+    "appclose": "تم الإغلاق",
+    "userlock": "تم إيقاف المستخدم",
+    "successuselock":"تم إيقاف موقت  للمستخدم ",
+    "failuserlock":"فشل إيقاف موقت  للمستخدم ",
+    "loginerror": "أسم المستخدم أو كلمة المرور خطأ",
+    "loginsuccess":"تم التسجيل بنجاح",
+    
+    "get":"بحث",
+    "getall":"بحث",
+    "deletebyid":"حذف",
+    "deletesoftbyid":"حذف سوفت" ,
+    "deleterangesoft":" حذف سوفت",
+    "deleterange":" حذف",
+    "edit":"تعديل",
+    "getbyid":"بحث",
+    "register":"تسجيل ",
+    "notfound":"غير موجود",
+    "hospital":"المستشفيات",
+    "policyEmpty":"الصلاحية فارغة",
+    "userEmpty":"المستخدم غير موجود",
+    "forbidden":"غير مسموح",
+    "emailfound":"الايميل موجود",
+    "usernotfound":"المستخدم غير  موجود",
+    "duplicateRoleName":"إسم الصلاحية موجود",
+    "roles":"الصلاحيات",
+    "users":"المستخدمين",
+    "namefound":"الاسم موجود"
+
+
+
+    
+
+}

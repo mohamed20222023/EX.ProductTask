@@ -1,0 +1,119 @@
+﻿@model ProductEditDto
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+@section Admin {
+	@await Html.PartialAsync("~/Views/Partials/_partial.cshtml");
+}
+
+
+		<div class="app-content page-body">
+			<div class="container">
+
+				<!--Page header-->
+				<div class="page-header">
+					<div class="page-leftheader">
+						<h4 class="page-title">Update Product</h4>
+						<ol class="breadcrumb pl-0">
+							<li class="breadcrumb-item"><a asp-controller="Home" asp-action="AdminIndex">Home</a></li>
+							<li class="breadcrumb-item"><a asp-controller="Home" asp-action="Edit">Update</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Update Employee</li>
+						</ol>
+					</div>
+				</div>
+				<!--End Page header-->
+
+				<!-- Row -->
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+				<form asp-controller="Home" method="post" enctype="multipart/form-data" asp-action="Edit" class="card">
+							<div class="card-header">
+								<h3 class="card-title">Update Product</h3>
+								<div class="card-options ">
+									<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+								</div>
+							</div>
+							<div class=" card-body">
+								<div class="row">
+									<div class="col-md-6 col-lg-12">
+								<div asp-validation-summary="All" class="text-danger"></div>
+
+										<input asp-for=Id type="text"  hidden>
+
+								@*Name*@
+								<div class="form-group">
+									<label class="form-label">Product Name</label>
+									<input asp-for=Name type="text" class="form-control" placeholder="Product Name">
+									<span class="text-danger"></span>
+								</div>
+
+								@*Account*@
+								<div class="form-group ">
+									<label asp-for="CategoryId" class="form-label">Categories</label>
+									<select asp-for="CategoryId" class="form-control select2 custom-select"
+											asp-items="ViewBag.Categories">
+										<option></option>
+									</select>
+									<span asp-validation-for="CategoryId" class="text-danger"></span>
+
+								</div>
+
+								@*Start Date*@
+								<div class="wd-200 mg-b-30 form-group">
+									<label class="form-label">Start Date</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+											</div>
+										</div>
+										<input asp-for=StartDate class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text">
+									</div>
+									<span class="text-danger"></span>
+								</div>
+
+								@*Duration*@
+								<div class="form-group">
+									<label class="form-label">Duration</label>
+									<input asp-for=Duration type="number" class="form-control" placeholder="Duration ">
+									<span a class="text-danger"></span>
+								</div>
+
+
+								@*Price*@
+								<div class="form-group">
+									<label class="form-label">Price</label>
+									<input asp-for=Price type="number" class="form-control" placeholder="Peice">
+									<span class="text-danger"></span>
+
+								</div>
+
+
+								@*Image*@
+								<div class="form-group">
+								<label class="form-label">Update Product Image</label>
+								@if (Model.URL != null)
+								{
+								<img src="~/ProductImages/@Model.URL" alt="Current Image" class="img-thumbnail" />
+								}
+								<input asp-for="@Model.File" type="file" class="form-control">
+								<span class="text-danger"></span>
+								</div>
+
+									</div>
+								</div>
+							</div>
+							<center>
+								<div class="col-md-4 mb-5">
+									<input type="submit" class="btn btn-info  mb-1" value="Update Product" />
+								</div>
+							</center>
+						</form>
+					</div>
+				</div>
+				<!-- End Row-->
+
+			</div>
+		</div><!-- end app-content-->

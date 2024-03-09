@@ -1,0 +1,113 @@
+﻿@model ProductEditDto
+@inject SignInManager<IdentityUser> signInManager 
+@{
+    ViewData["Title"] = "Detail";
+    //Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+
+@section Admin {
+    @await Html.PartialAsync("~/Views/Partials/_partial.cshtml");
+}
+
+<!--Page header-->
+<div class="page-header">
+    <div class="page-leftheader">
+        <h4 class="page-title">Detail</h4>
+        <ol class="breadcrumb pl-0">
+            			@if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            {
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="AdminIndex">Home</a></li>
+            }
+            else
+            {
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            }
+            <li class="breadcrumb-item active" aria-current="page">Detail ( @Model.Name)</li>
+        </ol>
+    </div>
+
+</div>
+<!--End Page header-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title fa-2x">Detail ( @Model.Name)</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive push">
+                    <table class="table table-bordered table-hover fa-2x">
+                        <tbody>
+                            <center>
+                                <img width="300px" height="300px" src="~/ProductImages/@Model.URL" />
+                            </center>
+                            <br />
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td class="text-center">ID</td>
+                                <td>
+                                    <p class="font-w600 mb-1">@Model.Id</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Name</td>
+                                <td>
+                                    <p class="font-w600 mb-1">@Model.Name</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Category</td>
+                                <td>
+                                    <p class="font-w600 mb-1">@Model.CategoryName</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Duration</td>
+                                <td>
+                                    <p class="font-w600 mb-1">@Model.Duration</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Start Date</td>
+                                <td>
+                                    <p class="font-w600 mb-1">@Model.StartDate.ToString().Split(' ').First()</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Price</td>
+                                <td>
+                                    <p class="font-w600 mb-1">@Model.Price</p>
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted text-center">Thank you very much for doing business with us.</p>
+            </div>
+        </div>
+
+        <center>
+            <div class="mb-5">
+                				@if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                <a asp-controller="Home" asp-action="AdminIndex" class="btn w-50 btn-pill btn-info">Return</a>
+                }
+                else
+                { 
+                <a asp-controller="Home" asp-action="Index" class="btn w-50 btn-pill btn-info">Return</a>
+                }
+            </div>
+        </center>
+    </div>
+</div>
+
+
+
+
+

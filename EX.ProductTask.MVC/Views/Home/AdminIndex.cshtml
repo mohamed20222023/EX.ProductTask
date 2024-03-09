@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ProductEditDto>
+
+@{
+    ViewData["Title"] = "AdminIndex";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+<link href="~/plugins/datatable/dataTables.bootstrap4.min.css" rel="stylesheet" />	
+@section Admin {
+	@await Html.PartialAsync("~/Views/Partials/_partial.cshtml");
+}
+<!--Page header-->
+<div class="page-header">
+	<div class="page-leftheader">
+		<h4 class="page-title">Products</h4>
+		<ol class="breadcrumb pl-0">
+			<li class="breadcrumb-item"><a asp-controller="Home" asp-action="AdminIndex">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Products</li>
+		</ol>
+	</div>
+	<div>
+		<a asp-controller="Home" asp-action="Create" class="btn btn-pill btn-primary w-200">Create Product</a>
+	</div>
+</div>
+<!--End Page header-->
+
+<div class="row">
+	<div class="col-md-12 col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Products</div>
+				<div class="card-options ">
+					<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table id="example" class="table table-striped table-bordered w-100">
+						<thead>
+							<tr>
+								<th class="wd-15p">ID</th>
+								<th class="wd-15p">Name</th>
+								<th class="wd-15p">Category</th>
+								<th class="wd-20p">StartDate</th>
+								<th class="wd-15p">Duration</th>
+								<th class="wd-10p">Price</th>
+								<th class="wd-10p">Creater</th>
+								<th class="wd-10p">Image</th>
+								<th class="wd-25p"></th>
+							</tr>
+						</thead>
+						<tbody>
+						@foreach (var item in Model)
+							{
+								<tr>
+									<td>@item.Id</td>
+									<td class="text-sm font-weight-600">@item.Name</td>
+									<td class="text-sm font-weight-600">@item.CategoryName</td>
+									<td>@item.StartDate</td>
+									<td>@item.Duration</td>
+									<td>@item.Price</td>
+									<td>@item.UserCreated</td>
+									<td>
+										<img width="100px" height="100px" class="avatar avatar-md brround" src="~/ProductImages/@item.URL" />
+									</td>									
+									<td class="text-center">
+										<a asp-controller="Home" asp-route-id="@item.Id" asp-action="Detail" class="btn btn-pill btn-info">Details</a>
+										<a asp-controller="Home" asp-route-id="@item.Id" asp-action="Edit" class="btn btn-pill btn-warning">Update</a>
+										<a asp-controller="Home" asp-route-id="@item.Id" asp-action="Delete" class="btn btn-pill btn-danger">Delete</a>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+@section datatable{
+	<script src="~/plugins/datatable/jquery.dataTables.min.js"></script>
+	<script src="~/plugins/datatable/dataTables.bootstrap4.min.js"></script>
+	<script src="~/js/datatables.js"></script>
+		}

@@ -1,0 +1,11 @@
+migrations
+     dotnet ef migrations add Init  -s ../EX.ProductTask.MVC   -c AppDbContext
+     dotnet ef database  update  -s ../EX.ProductTask.MVC  -c AppDbContext
+     dotnet ef migrations remove   -s ../EX.ProductTask.MVC   -c AppDbContext
+
+
+
+
+     ng 
+     ng build --prod  --build-optimizer=false 
+     ng serve -o 

@@ -1,0 +1,216 @@
+﻿@* @inject SignInManager<IdentityUser> signInManager *@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!-- Meta data -->
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+	<meta content="Aronox – Admin Bootstrap4 Responsive Webapp Dashboard Templat" name="description">
+	<meta content="Spruko Technologies Private Limited" name="author">
+	<meta name="keywords" content="admin site template, html admin template,responsive admin template, admin panel template, bootstrap admin panel template, admin template, admin panel template, bootstrap simple admin template premium, simple bootstrap admin template, best bootstrap admin template, simple bootstrap admin template, admin panel template,responsive admin template, bootstrap simple admin template premium" />
+
+	<!-- Title -->
+	<title>@ViewBag.Title</title>
+
+	<!--Favicon -->
+	<link rel="icon" href="~/images/brand/favicon.ico" type="image/x-icon" />
+
+	<!-- Style css -->
+	<link href="~/css/style.css" rel="stylesheet" />
+
+	<!--Horizontal css -->
+	<link id="effect" href="~/plugins/horizontal-menu/dropdown-effects/fade-up.css" rel="stylesheet" />
+	<link href="~/plugins/horizontal-menu/horizontal.css" rel="stylesheet" />
+
+	<!-- P-scroll bar css-->
+	<link href="~/plugins/p-scroll/perfect-scrollbar.css" rel="stylesheet" />
+
+	<!---Icons css-->
+	<link href="~/plugins/iconfonts/icons.css" rel="stylesheet" />
+	<link href="~/plugins/iconfonts/font-awesome/font-awesome.min.css" rel="stylesheet">
+	<link href="~/plugins/iconfonts/plugin.css" rel="stylesheet" />
+
+	<!-- Skin css-->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="~/skins/hor-skin/horizontal-dark.css" />
+
+
+
+	<!-- Select2 css -->
+	<link href="~/plugins/select2/select2.min.css" rel="stylesheet" />
+
+	<!-- Time picker css -->
+	<link href="~/plugins/time-picker/jquery.timepicker.css" rel="stylesheet" />
+
+	<!-- Date Picker css -->
+	<link href="~/plugins/date-picker/spectrum.css" rel="stylesheet" />
+
+
+</head>
+
+
+ 
+<body class="app">
+
+
+
+	<!---Global-loader-->
+	<div id="global-loader">
+		<img src="~/images/svgs/loader.svg" alt="loader">
+	</div>
+
+	<div class="page">
+		<div class="page-main">
+			<div class="header top-header">
+				<div class="container">
+					<div class="d-flex">
+						<a class="header-brand" >
+							<img src="~/images/brand/favicon.png" class="header-brand-img mobile-logo" alt="Aronox logo">
+							<img src="~/images/brand/favicon.png" class="header-brand-img desktop-lgo" alt="Aronox logo">
+						</a>
+						<div class="d-flex order-lg-2 ml-auto">
+							<a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
+							<div class="dropdown   header-fullscreen">
+								<a class="nav-link icon full-screen-link" id="fullscreen-button">
+									<i class="mdi mdi-arrow-collapse"></i>
+								</a>
+							</div>
+
+							<div class="dropdown">
+								<a class="nav-link pr-0 leading-none" href="#" data-toggle="dropdown" aria-expanded="false">
+									<div class="profile-details mt-2">
+										<span class="mr-3 font-weight-semibold">@User.Identity.Name</span>
+									</div>
+									<img class="avatar avatar-md brround" src="~/images/users/17.png" alt="image">
+								</a>
+								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow w-250" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(148px, 46px, 0px);">
+									<div class="user-profile border-bottom p-3">
+										<div class="user-image"><img class="user-images" src="~/images/users/17.png" alt="image"></div>
+										<div class="user-details">
+											<h4>@User.Identity.Name</h4>
+										</div>
+									</div>
+									<form asp-action="SignOut" asp-controller="Account">
+										<input type="submit"  class="dropdown-item pt-3 pb-3 important" value="Sign Out">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			@RenderSection("Admin" , required:false)
+
+			<div class="app-content page-body">
+				<div class="container">
+					<div>
+						@RenderBody()
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<!--Footer-->
+		<footer class="footer">
+			<div class="container">
+				<div class="row align-items-center flex-row-reverse">
+					<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
+						Copyright © 2023 <a href="#">ERP</a>. Designed by <a href="#">Mohammed Eid Abdulhamid</a> All rights reserved.
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End Footer-->
+	</div>
+
+
+
+	<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+	<!-- Jquery js-->
+	<script src="~/js/vendors/jquery-3.4.0.min.js"></script>
+
+
+	<!--Select2 js -->
+	<script src="~/plugins/select2/select2.full.min.js"></script>
+	<script src="~/js/select2.js"></script>
+
+	<!-- Timepicker js -->
+	<script src="~/plugins/time-picker/jquery.timepicker.js"></script>
+	<script src="~/plugins/time-picker/toggles.min.js"></script>
+
+	<!-- Datepicker js -->
+	<script src="~/plugins/date-picker/spectrum.js"></script>
+	<script src="~/plugins/date-picker/jquery-ui.js"></script>
+	<script src="~/plugins/input-mask/jquery.maskedinput.js"></script>
+
+	<!-- File uploads js -->
+	<script src="~/plugins/fileuploads/js/dropify.js"></script>
+	<script src="~/js/filupload.js"></script>
+
+
+	<!-- Bootstrap4 js-->
+	<script src="~/plugins/bootstrap/popper.min.js"></script>
+	<script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<!--Othercharts js-->
+	<script src="~/plugins/othercharts/jquery.sparkline.min.js"></script>
+
+	<!-- Circle-progress js-->
+	<script src="~/js/vendors/circle-progress.min.js"></script>
+
+	<!-- Jquery-rating js-->
+	<script src="~/plugins/rating/jquery.rating-stars.js"></script>
+
+	<!--Horizontal js-->
+	<script src="~/plugins/horizontal-menu/horizontal.js"></script>
+
+	<!-- P-scroll js-->
+	<script src="~/plugins/p-scroll/perfect-scrollbar.js"></script>
+	<script src="~/plugins/p-scroll/p-scroll.js"></script>
+
+	<!-- ECharts js -->
+	<script src="~/plugins/echarts/echarts.js"></script>
+
+	<!-- CHARTJS CHART -->
+	<script src="~/plugins/chart/chart.bundle.js"></script>
+	<script src="~/plugins/chart/utils.js"></script>
+
+	<!-- Peitychart js-->
+	<script src="~/plugins/peitychart/jquery.peity.min.js"></script>
+	<script src="~/plugins/peitychart/peitychart.init.js"></script>
+
+	<!-- Index js-->
+	<script src="~/js/index1.js"></script>
+
+	<!-- Apexchart js-->
+	<script src="~/js/apexcharts.js"></script>
+
+	<!-- Custom js-->
+	<script src="~/js/custom-dark.js"></script>
+
+
+
+
+	<!--Select2 js -->
+	<script src="~/plugins/select2/select2.full.min.js"></script>
+	<script src="~/js/select2.js"></script>
+
+	<!-- Timepicker js -->
+	<script src="~/plugins/time-picker/jquery.timepicker.js"></script>
+	<script src="~/plugins/time-picker/toggles.min.js"></script>
+
+	<!-- Datepicker js -->
+	<script src="~/plugins/date-picker/spectrum.js"></script>
+	<script src="~/plugins/date-picker/jquery-ui.js"></script>
+	<script src="~/plugins/input-mask/jquery.maskedinput.js"></script>
+
+
+	@RenderSection("scripts" , required:false)
+	@RenderSection("datatable" , required:false)
+
+</body>
+</html>
