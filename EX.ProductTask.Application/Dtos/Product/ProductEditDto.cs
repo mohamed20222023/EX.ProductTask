@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace Application.Dtos.Product
 {
     public class ProductEditDto
     {
         public int? Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public int Duration { get; set; } // Duration in minutes, hours, etc.

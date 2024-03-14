@@ -18,7 +18,6 @@ public static class InfrastructureStartup
         #region common services
 
         services.AddHttpContextAccessor();
-        services.AddSwaggerServices();
          services.AddScoped(typeof(IRepositoryApp<>), typeof(RepositoryApp<>));
         
 
@@ -31,12 +30,7 @@ public static class InfrastructureStartup
         services.AddDistributedMemoryCache();
 
         #endregion
-        #region  permission & auth
-        //services.AddAuthenticationServices(ConfigurationToken);
-		#endregion
 
-
-		//  var s=services.Count();
 
 		return services;
     }
